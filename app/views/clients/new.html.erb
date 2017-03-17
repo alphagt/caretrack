@@ -1,5 +1,14 @@
-<h1>New Client</h1>
 
-<%= render 'form', client: @client %>
 
-<%= link_to 'Back', clients_path %>
+
+	<h1>New Client</h1>
+
+	<%= render 'form', client: @client %>
+
+<% content_for :sidebarwide do %>
+	<table class="table">
+		<tr>
+		<td class="danger"><%= link_to 'Back', clients_path %></td>
+	</table>
+<% end %>
+

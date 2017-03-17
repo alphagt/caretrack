@@ -1,19 +1,33 @@
-<p id="notice"><%= notice %></p>
+<% content_for :nav do %>
+	<%  render partial: "layouts/navigation", locals: {active: "clients"} %>
+<% end %>
 
-<p>
-  <strong>Uid:</strong>
-  <%= @client.uid %>
-</p>
+<% content_for :main do %>
+	<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Moniker:</strong>
-  <%= @client.moniker %>
-</p>
+	<p>
+	  <strong>Uid:</strong>
+	  <%= @client.uid %>
+	</p>
 
-<p>
-  <strong>Admin:</strong>
-  <%= @client.admin.email%>
-</p>
+	<p>
+	  <strong>Moniker:</strong>
+	  <%= @client.moniker %>
+	</p>
 
-<%= link_to 'Edit', edit_client_path(@client) %> |
-<%= link_to 'Back', clients_path %>
+	<p>
+	  <strong>Admin:</strong>
+	  <%= @client.admin.email%>
+	</p>
+<% end %>
+<% content_for :sidebarwide do %>
+	<table class="table">
+		<tr>
+		<td class="danger"><%= link_to 'Edit', edit_client_path(@client) %></td>
+		<tr>
+		<td class="danger"><%= link_to 'Back', clients_path %></td>
+		<tr>
+		<td class="danger"><%= link_to 'New Client', new_client_path %></td>
+	</table>
+<% end %>
+

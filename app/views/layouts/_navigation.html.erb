@@ -1,7 +1,9 @@
 <nav class="navbar navbar-default" role="navigation">
-	
-
-<ul class="nav nav-pills" role="tablist">
+<div class="container-fluid">
+<div class="navbar-header">
+  <a class="navbar-brand" href="#">PitCrew</a>
+</div>
+<ul class="nav navbar-nav">
   <% if user_signed_in? %>
     <li>
     <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>        
@@ -9,6 +11,8 @@
   <% else %>
     <% if active == "login" %>
     	<li class="active">
+    <% else %>
+    	<li>
     <% end %>
     <%= link_to('Login', new_user_session_path)  %>  
     </li>
@@ -39,5 +43,15 @@
    	</li>
   <% end %>
 </ul>
+<ul class="nav navbar-nav navbar-right">
+	<% if active == "admin" %>
+    		<li class="active" >
+    <% else %>
+    		<li>
+    <% end %>
+	<%= link_to('SignUp', new_user_registration_path) %>
+	</li>
+</ul>
+</div>
 </nav>
 <br/>

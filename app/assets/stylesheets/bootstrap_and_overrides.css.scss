@@ -1,6 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "bootstrap-datepicker";
+
 
 
 
@@ -27,4 +27,9 @@ input.btn[type="submit"] {
 
 .form-actions {
 	float:left;
+}
+
+.navbar-default .navbar-nav > .active > a, , .navbar-default .navbar-nav > .active > a:hover, 
+.navbar-default .navbar-nav > .active > a:focus {
+    background-color: #82CAFA ;
 }

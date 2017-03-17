@@ -1,32 +1,37 @@
-<%= form_for(client) do |f| %>
-  <% if client.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(client.errors.count, "error") %> prohibited this client from being saved:</h2>
+<% content_for :nav do %>
+	<%  render partial: "layouts/navigation", locals: {active: "clients"} %>
+<% end %>
+<% content_for :main do %>
+	<%= form_for(client) do |f| %>
+	  <% if client.errors.any? %>
+		<div id="error_explanation">
+		  <h2><%= pluralize(client.errors.count, "error") %> prohibited this client from being saved:</h2>
 
-      <ul>
-      <% client.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+		  <ul>
+		  <% client.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+		  <% end %>
+		  </ul>
+		</div>
+	  <% end %>
 
-  <div class="field">
-    <%= f.label :uid %>
-    <%= f.text_field :uid %>
-  </div>
+	  <div class="field">
+		<%= f.label :uid %>
+		<%= f.text_field :uid %>
+	  </div>
 
-  <div class="field">
-    <%= f.label :moniker %>
-    <%= f.text_field :moniker %>
-  </div>
+	  <div class="field">
+		<%= f.label :moniker %>
+		<%= f.text_field :moniker %>
+	  </div>
 
-  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id %>
-  </div>
+	  <div class="field">
+		<%= f.label :user_id %>
+		<%= f.text_field :user_id %>
+	  </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	  <div class="actions">
+		<%= f.submit %>
+	  </div>
+	<% end %>
 <% end %>
