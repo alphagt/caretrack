@@ -1,4 +1,8 @@
-<p id="notice"><%= notice %></p>
+<% content_for :nav do %>
+	<%  render partial: "layouts/navigation", locals: {active: "clients"} %>
+<% end %>
+
+<% content_for :main do %>
 
 <h1>Clients</h1>
 
@@ -27,5 +31,6 @@
 </table>
 
 <br>
+<% end %>
 
 <%= link_to 'New Client', new_client_path %>

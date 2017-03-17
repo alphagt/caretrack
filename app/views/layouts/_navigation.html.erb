@@ -1,0 +1,43 @@
+<nav class="navbar navbar-default" role="navigation">
+	
+
+<ul class="nav nav-pills" role="tablist">
+  <% if user_signed_in? %>
+    <li>
+    <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>        
+    </li>
+  <% else %>
+    <% if active == "login" %>
+    	<li class="active">
+    <% end %>
+    <%= link_to('Login', new_user_session_path)  %>  
+    </li>
+  <% end %>
+  <% if user_signed_in? %>
+    <% if active == "account" %>
+    	<li class="active" >
+    <% else %>
+    	<li>
+    <% end %>
+      <%= link_to('Edit account', edit_user_registration_path) %>
+    </li>
+	
+    	<% if active == "clients" %>
+    		<li class="active" >
+    	<% else %>
+    		<li>
+    	<% end %>
+    	<%= link_to('Clients', clients_path) %>
+      	</li> 
+  <% else %>
+  	<% if active == "admin" %>
+    		<li class="active" >
+    <% else %>
+    		<li>
+    <% end %>
+    <%= link_to('Admin', new_user_registration_path)  %>
+   	</li>
+  <% end %>
+</ul>
+</nav>
+<br/>
