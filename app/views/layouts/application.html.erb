@@ -41,9 +41,9 @@
 					<% end %>
 				<% end %>
             	<% if content_for?(:sidebarwide) %>
-            		<div id="content" class="col-md-10">
+            		<div id="content" class="col-md-10 container-fluid">
             	<% else %>
-            		<div id="content" class="col-md-11">
+            		<div id="content" class="col-md-11 container-fluid">
             	<% end %>
             	<%= yield(:main) %>
 			</div>

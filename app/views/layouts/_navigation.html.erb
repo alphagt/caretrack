@@ -5,52 +5,43 @@
 </div>
 <ul class="nav navbar-nav">
   <% if user_signed_in? %>
-    <li>
-    <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>        
-    </li>
-  <% else %>
-    <% if active == "login" %>
-    	<li class="active">
-    <% else %>
-    	<li>
-    <% end %>
-    <%= link_to('Login', new_user_session_path)  %>  
-    </li>
-  <% end %>
-  <% if user_signed_in? %>
-    <% if active == "account" %>
-    	<li class="active" >
-    <% else %>
-    	<li>
-    <% end %>
-      <%= link_to('Edit account', edit_user_registration_path) %>
-    </li>
-	
+    
     	<% if active == "clients" %>
     		<li class="active" >
     	<% else %>
     		<li>
     	<% end %>
     	<%= link_to('Clients', clients_path) %>
-      	</li> 
-  <% else %>
-  	<% if active == "admin" %>
-    		<li class="active" >
-    <% else %>
-    		<li>
-    <% end %>
-    <%= link_to('Admin', new_user_registration_path)  %>
-   	</li>
+      </li> 
   <% end %>
 </ul>
 <ul class="nav navbar-nav navbar-right">
-	<% if active == "admin" %>
-    		<li class="active" >
+	<% if !user_signed_in? %>
+		<% if active != "login" %>
+			<li>
+			<%= link_to('Login', new_user_session_path)  %>  
+			</li>
+		<% end %>
+		<% if active == "admin" %>
+				<li class="active" >
+		<% else %>
+				<li>
+		<% end %>
+		<%= link_to('SignUp', new_user_registration_path) %>
+		</li>
     <% else %>
+    	<% if active == "account" %>
+    		<li class="active" >
+    	<% else %>
     		<li>
-    <% end %>
-	<%= link_to('SignUp', new_user_registration_path) %>
-	</li>
+    	<% end %>
+      	<%= link_to('Edit account', edit_user_registration_path) %>
+    	</li>
+    	
+		<li>
+    	<%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>        
+    	</li>
+	<% end %>
 </ul>
 </div>
 </nav>
