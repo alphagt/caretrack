@@ -3,8 +3,6 @@ class CreateClients < ActiveRecord::Migration[5.0]
     create_table :clients do |t|
       t.string :uid
       t.string :moniker
-      t.references :user, foreign_key: true
-
       t.timestamps
     end
   end

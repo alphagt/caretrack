@@ -7,8 +7,11 @@
 <% content_for :main do %>
 	<div class="col-md-6">
 		<h1>My Clients</h1>
-
-		<%= render "clients/index" %>
+		<% if @Clients.empty? then %>
+			<h3>PLACE HOLDER INFO</h3>
+		<% else %>
+			<%= render "clients/index" %>
+		<% end %>
 	</div>
 
 	<div class="col-md-6">

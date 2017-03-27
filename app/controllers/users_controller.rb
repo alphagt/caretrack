@@ -1,24 +1,19 @@
 class UsersController < ApplicationController
-
+before_filter :authenticate_user!
 
 #GET users/home
 def home
 	if current_user.is_admin? then
-		redirect_to user_admin_home_path(:id => current_user.id)
+		redirect_to admin_home_user_path(:id => current_user.id)
 	end
 	
-	redirect_to users_home_path(:id => current_user.id)	
 	
 end
 
 #GET users/admin_home
 def admin_home
-	
+	@Clients = Client.all
 end
 
-#GET users/home
-def home
-
-end
 
 end

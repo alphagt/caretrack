@@ -1,10 +1,10 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /clients
   # GET /clients.json
   def index
-    @clients = Client.all
+    @Clients = Client.all
   end
 
   # GET /clients/1
@@ -25,6 +25,7 @@ class ClientsController < ApplicationController
   # POST /clients.json
   def create
     @client = Client.new(client_params)
+    @client.users << current_user
 
     respond_to do |format|
       if @client.save
